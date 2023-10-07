@@ -3326,12 +3326,13 @@ function handleVideoZoomInOut(zoomInBtnId, zoomOutBtnId, mediaId, peerId = null)
         video.style.scale = zoom;
     }
 
-    video.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        let delta = e.wheelDelta ? e.wheelDelta : -e.deltaY;
-        delta > 0 ? (zoom *= 1.2) : (zoom /= 1.2);
-        setTransform();
-    });
+    // --- Disable mouse wheel zoom ---
+    // video.addEventListener('wheel', (e) => {
+    //     e.preventDefault();
+    //     let delta = e.wheelDelta ? e.wheelDelta : -e.deltaY;
+    //     delta > 0 ? (zoom *= 1.2) : (zoom /= 1.2);
+    //     setTransform();
+    // });
 
     if (buttons.local.showZoomInOutBtn) {
         zoomIn.addEventListener('click', () => {
