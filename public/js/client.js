@@ -4921,7 +4921,10 @@ async function stopLocalAudioTrack() {
 async function toggleScreenSharing(init = false) {
     screenMaxFrameRate = parseInt(screenFpsSelect.value);
     const constraints = {
-        audio: false, // enable/disable tab audio
+        audio: {
+            noiseSuppression: true,
+            echoCancellation: true,
+        }, // enable/disable tab audio
         video: { frameRate: { max: screenMaxFrameRate } },
     }; // true | { frameRate: { max: screenMaxFrameRate } }
 
